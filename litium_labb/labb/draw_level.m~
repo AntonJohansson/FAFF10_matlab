@@ -1,0 +1,5 @@
+function [] = draw_level(x, E)
+    width =;
+    
+end
+
