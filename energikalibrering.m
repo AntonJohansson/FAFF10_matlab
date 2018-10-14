@@ -7,7 +7,7 @@
 
 [f, data] = get_calibration_func();
 
-figure(1);
+figure;
 hold on;
 grid on;
 box on;
