@@ -42,7 +42,7 @@ wave_function1 = zeros(size(r1));
 %
 wave_plot=axes('pos',[0.1 0.47 0.8 0.45]);
 gca = wave_plot;
-line([0 30],[0 0],'linestyle','--')
+line([0 30],[0 0],'linestyle','--');
 set(gca,'YLim',[-1.1 1.1]);
 set(gca,'xlim',[0 30]);
 set(gca,'ytick',[]);

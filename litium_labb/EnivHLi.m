@@ -86,6 +86,7 @@ else
   m_max = max(abs(wave_function1(1:240)));
 end;
 wave_function1 = wave_function1 / m_max;
+
 cla;
 line([0 30],[0 0],'linestyle','--')
 
@@ -93,11 +94,23 @@ set(gca,'xlim',[0 30]);
 set(gca,'ytick',[]);
 hold on;
 
+
+
 p = plot( r1, wave_function1, '-' );
 set( p, 'linewidth', 2 );
 plot( r1, old_wave_function1, '--' );
 
+
+
 xlabel('Avstånd till kärnan (Ångström)');
+
+figure(2);
+old_gca = gca;
+clear gca;
+clf;
+FigureHook;
+gca = old_gca;
+figure(menyfigur);
 %
 %   /\           /\
 %   ||		     ||

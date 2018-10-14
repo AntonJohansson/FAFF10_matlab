@@ -66,15 +66,6 @@ draw_level(3, d(4), '4d');
 % f
 draw_level(4, f(4), '4f');
 
-x = linspace(1,2,100);
-y = linspace(s(2), p(2), 100);
-plot(x, y, 'k--');
-text(1.5, (s(2)+p(2))/2, '0.66', 'HorizontalAlignment', 'center');
-x = linspace(3+0.75/2,4-0.75/2,10);
-y = linspace(d(4), f(4), 10);
-plot(x, y, 'r--');
-text(3.5, (d(4)+f(4))/2, '0.66', 'VerticalAlignment', 'top', 'HorizontalAlignment', 'center');
-
 title('Energiniv{\aa}er i litium', 'Interpreter', 'latex');
 xlabel('R\"orelsem\"angdsmomentskvanttal', 'Interpreter', 'latex');
 ylabel('Energi (eV)', 'Interpreter', 'latex');
