@@ -8,7 +8,7 @@ rydberg   = @(n)    h*c*R/n^2/e;
 rydberg_z = @(n, Z) h*c*R*Z^2/n^2/e;
 
 %% Spektrum v?te
-figure;
+figure(3);
 box on;
 hold on;
 
@@ -29,7 +29,7 @@ draw_level(3, E(4), '4d');
 % f
 draw_level(4, E(4), '4f');
 
-title('Energiniv{\aa}er i v\"ate', 'Interpreter', 'latex');
+title('Experimentella energiniv{\aa}er i v\"ate', 'Interpreter', 'latex');
 xlabel('R\"orelsem\"angdsmomentskvanttal', 'Interpreter', 'latex');
 ylabel('Energi (eV)', 'Interpreter', 'latex');
 
@@ -43,7 +43,7 @@ set(gca, 'TickLabelInterpreter', 'latex');
 
 %% Spektrum litium
 
-figure;
+figure(4);
 box on;
 hold on;
 
@@ -66,7 +66,7 @@ draw_level(3, d(4), '4d');
 % f
 draw_level(4, f(4), '4f');
 
-title('Energiniv{\aa}er i litium', 'Interpreter', 'latex');
+title('Experimentella energiniv{\aa}er i litium', 'Interpreter', 'latex');
 xlabel('R\"orelsem\"angdsmomentskvanttal', 'Interpreter', 'latex');
 ylabel('Energi (eV)', 'Interpreter', 'latex');
 
