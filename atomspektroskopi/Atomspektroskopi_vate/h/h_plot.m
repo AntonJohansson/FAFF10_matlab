@@ -20,9 +20,13 @@ lambda_peaks = zeros(length(P),1);
 for i=1:length(P)
     [gauss, x] = fit_gauss(lambda, spektra, lambda(I(i)), round(W(i)));
     [M, I2] = max(gauss(x));
-    lambda_peaks(i) = x(I2) - err(x(I2));
+    %lambda_peaks(i) = x(I2) - err(x(I2));
+    lambda_peaks(i) = x(I2);
     fprintf('%f\n', lambda_peaks(i));
 end
+
+% calculate rydberg constant from these values
+calculate_rydberg([2;2;2], [5;4;3], lambda_peaks);
 
 % plot
 figure;

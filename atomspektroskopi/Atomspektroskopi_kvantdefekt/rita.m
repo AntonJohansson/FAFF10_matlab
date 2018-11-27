@@ -3,8 +3,10 @@ data = data.data;
 
 lambda = data(:,1);
 spektra = data(:,5);
-
 n = 1.000293; % brytningsindex luft
+lambda = lambda*n;
+
+
 h = 6.6261e-34;
 c = 2.99792458e8;
 R = 1.097373160000000e+07;

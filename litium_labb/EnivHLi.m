@@ -1,16 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Detta program anropas av menu.m och används för att lösa Schrö-    %
-% dingerekvationen numeriskt, d.v.s. utifrån given potential (väte-  %
-% eller litiumsystem), givet l-kvanttal och given energi räkna fram  %
-% motsvarande radiella vågfunktion.                                  %
+% Detta program anropas av menu.m och anv?nds f?r att l?sa Schr?-    %
+% dingerekvationen numeriskt, d.v.s. utifr?n given potential (v?te-  %
+% eller litiumsystem), givet l-kvanttal och given energi r?kna fram  %
+% motsvarande radiella v?gfunktion.                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Utvecklat av  Fredrik Frisk, Gunnar Ohlen, Ingemar Ragnarsson och  %
-% Per Östborn.                                                       %
+% Per ?stborn.                                                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Översyn gjord av Magnus Borgh, höstterminen 2005                   %
+% ?versyn gjord av Magnus Borgh, h?stterminen 2005                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%  Här börjar programmet!
+%  H?r b?rjar programmet!
 %   ||		     ||
 %   ||		     ||
 %   \/               \/
@@ -24,21 +24,21 @@ Enorm = E*two_m_over_hbar_square;
 
 set(energiruta,'string',mat2str(E));
 
-% definition av delta_r och start_r; vektorn r är definierad i menu.m
+% definition av delta_r och start_r; vektorn r ?r definierad i menu.m
 delta_r = r(2) - r(1);
 start_r	= r(1:2);
 L; Z;
 old_wave_function1 = wave_function1;
 
-% Potentialer för elektronen i väteatomen samt för valenselektronen i
-% litium. Notera att effektivt Z=2.69 används. En alternativ modell
-% vore att använda kvantdefektmodellen.
+% Potentialer f?r elektronen i v?teatomen samt f?r valenselektronen i
+% litium. Notera att effektivt Z=2.69 anv?nds. En alternativ modell
+% vore att anv?nda kvantdefektmodellen.
 h_pot = -1.*e_Zero_square.*(1./r);
 li_pot = -3.*e_Zero_square.*(1./r) + e_Zero_square.*(2./r-(5.38/a_Bohr+2./r).*exp(-5.38.*r/a_Bohr));
  
-% Programmet kan även (med användarinställningen Li i potentialvalet)
-% användas för att räkna på elektronen i den väteliknande jonen Li++.
-% aktivera följande rad för numerisk test av Li++       
+% Programmet kan ?ven (med anv?ndarinst?llningen Li i potentialvalet)
+% anv?ndas f?r att r?kna p? elektronen i den v?teliknande jonen Li++.
+% aktivera f?ljande rad f?r numerisk test av Li++       
 
 %li_pot = -3.*e_Zero_square.*(1./r);
 
@@ -50,7 +50,7 @@ else
 end;
 
 
-% startvärden i 1:a och 2:a 'punkten' för vågfunktionen
+% startv?rden i 1:a och 2:a 'punkten' f?r v?gfunktionen
 wave_function = start_r.^(L+1);
 t1 = clock;
 % iteration med delta(r) enligt definition ovan
@@ -58,12 +58,12 @@ for i = 3:100
      wave_function(i) = (2+(eff_pot(i-1)-Enorm)*delta_r^2)* ...
         wave_function(i-1) - wave_function(i-2);
   end;
-% iteration med 4 ggr större delta(r)  
+% iteration med 4 ggr st?rre delta(r)  
 for i = 26:100
    wave_function(4*i) = (2+(eff_pot(4*(i-1))-Enorm)*(4*delta_r)^2)* ...
       wave_function(4*(i-1)) - wave_function(4*(i-2));
 end;
-% iteration med delta(r) ytterligare 5 ggr större!   
+% iteration med delta(r) ytterligare 5 ggr st?rre!   
 for i = 1:20
      wave_function1(i) = wave_function(20*i); 
   end;
@@ -78,7 +78,7 @@ tid =etime(t1,clock);
 % the wavefunction multiplied with r. / J C Cremon
 wave_function1 = wave_function1 ./ r1;
 
-%   normera vågfunktinen för plottning!
+%   normera v?gfunktinen f?r plottning!
 m_max = 0;
 if Energy < -4
   m_max = max(abs(wave_function1(1:30)));
@@ -102,7 +102,7 @@ plot( r1, old_wave_function1, '--' );
 
 
 
-xlabel('Avstånd till kärnan (Ångström)');
+xlabel('Avst?nd till k?rnan (?ngstr?m)');
 
 figure(2);
 old_gca = gca;
@@ -115,4 +115,4 @@ figure(menyfigur);
 %   /\           /\
 %   ||		     ||
 %   ||		     ||
-%  Här slutar programmet!
+%  H?r slutar programmet!

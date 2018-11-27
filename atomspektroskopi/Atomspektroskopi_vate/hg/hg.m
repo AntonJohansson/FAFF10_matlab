@@ -28,12 +28,6 @@ for i=1:length(P)
     fprintf('%f\n', x(I2));
     lambda_peaks(i) = x(I2);
 end
-% 656.5 för högsta
-%[gauss,x] = fit_gauss(lambda, spektra, 657, 10);
-%[M, I] = max(gauss(x));
-
-% våglängden för den största stapeln
-%lambda_max = x(I)
 
 % plot
 figure;
@@ -65,7 +59,7 @@ x = lambda_peaks;
 y = lambda_peaks - lambda_teori;
 err = fit(x, y, 'poly1');
 hold on;
-plot(x, y, '.');
+plot(x, y, '.', 'MarkerSize', 14);
 x1 = linspace(min(x), max(x));
 plot(x1, err(x1));
  
