@@ -1,4 +1,4 @@
-data = importdata('na_icke_saturated.TXT', ';');
+data = importdata('hg.TXT', ';');
 data = data.data;
 
 lambda = data(:,1);
@@ -6,21 +6,17 @@ spektra = data(:,5);
 n = 1.000293; % brytningsindex luft
 lambda = lambda*n;
 
-
 h = 6.6261e-34;
 c = 2.99792458e8;
 R = 1.097373160000000e+07;
 
+get_max_gauss(lambda, spektra, 579, 1)
+
 % plot
-figure(1);
-hold on;
-box on;
-grid on;
-plot(lambda, spektra);
-xlim([430 630]);
+begin_figure(1);
+plot(lambda, spektra, 'LineWidth', 2);
+xlim([350 600]);
 ylim([0 7e4]);
-title('Emission spectra for $^{11}$Na', 'Interpreter', 'latex', 'FontSize', 18);
-xlabel('Wavelength (nm)', 'Interpreter', 'latex', 'FontSize', 18);
-ylabel('Counts', 'Interpreter', 'latex', 'FontSize', 18);
-set(gca, 'XTick', 430:20:630);
+legend_handle = end_figure(1, 'Emissionsspektrum fr{\aa}n Hg', {'V{\aa}glangd (nm)', 'Detektorpulser'}, '');
+set(gca, 'XTick', 350:25:600);
 
