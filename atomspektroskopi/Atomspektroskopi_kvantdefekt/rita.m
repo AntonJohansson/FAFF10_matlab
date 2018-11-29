@@ -17,6 +17,6 @@ begin_figure(1);
 plot(lambda, spektra, 'LineWidth', 2);
 xlim([350 600]);
 ylim([0 7e4]);
-legend_handle = end_figure(1, 'Emissionsspektrum fr{\aa}n Hg', {'V{\aa}glangd (nm)', 'Detektorpulser'}, '');
+legend_handle = end_figure(1, 'Emissionsspektrum fr{\aa}n Hg', {'V{\aa}gl\"angd (nm)', 'Detektorpulser'}, '');
 set(gca, 'XTick', 350:25:600);
 
