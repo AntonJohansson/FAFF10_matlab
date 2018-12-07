@@ -12,6 +12,8 @@ h = 6.6261e-34;
 c = 2.99792458e8;
 R = 1.097373160000000e+07;
 
+get_max_gauss(lambda, spektra, 579, 1)
+%%
 begin_figure(1);
 plot(lambda, spektra, 'LineWidth', 2);
 xlim([350 600]);
@@ -45,11 +47,12 @@ l363 = get_max_gauss(lambda, spektra, 361.6, 0.1);  - 361.44529*n
 
 %%
 begin_figure(1);
+set(gcf,'Position',[500 500 250 500]);
 plot(lambda, spektra, 'LineWidth', 1);
 %xlim([min(lambda) max(lambda)]);
-xlim([361 361.65]);
+%xlim([346.6 347]);
 ylim([0 7e4]);
-set(gca, 'XTick', 360:0.25:362);
+%set(gca, 'XTick', 340:0.2:350);
 
 %end_figure(1, 'Emissionsspektrum fr{\aa}n $^{48}$Cd', {'V{\aa}gl\"angd (nm)', 'Detektorpulser'}, '');
 end_figure(1, '', {'V{\aa}gl\"angd (nm)', 'Detektorpulser'}, '');

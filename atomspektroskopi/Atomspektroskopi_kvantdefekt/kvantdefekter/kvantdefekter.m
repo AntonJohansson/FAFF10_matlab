@@ -58,8 +58,8 @@ k_3p = delta(E_3p, 3)
 k_4d = delta(E_4d, 4)
 k_5d = delta(E_5d, 5)
 k_7d = delta(E_7d, 7)
-d_mean = mean([k_4d k_5d k_7d]);
+d_mean = mean([k_4d k_5d k_7d])
 
 E_8d = h*c*R/(8-k_7d)^2;
 E = -E_8d - -E_3p;
-h*c/E;
+h*c/E
